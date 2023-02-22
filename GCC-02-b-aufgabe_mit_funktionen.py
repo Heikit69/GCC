@@ -4,13 +4,14 @@ def start():
     Willkommen in dem adventure game Rezept Cup Cake.
     Du willst das geheime Cup Cake Rezept finden, doch wo ist es versteckt?
     Viel Glück.
-    Schreibe einen Text, um dich zu bewegen.
+    Schreibe Text, um dich zu bewegen.
     """
     print(intro_text)
 
     beginning_text = """
+    ===============================================
     Du kommst in eine Wohnung mit mehreren Zimmern.
-    Du suchst nach dem geheimen Cup Cake-Rezept?
+    Du suchst nach dem geheimen Cup Cake-Rezept
     """
     print(beginning_text)
 
