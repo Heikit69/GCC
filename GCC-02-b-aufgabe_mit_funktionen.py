@@ -25,7 +25,7 @@ def start():
         print("Du bist in einem Flur. Es gehen 3 Räume davon ab")
         main_loop()
     elif "hilfe" in next_action:
-        hilfe("wo bin | exit")
+        hilfe("wo bin | exit",start)
     else:
         dead("Du hast leider keinen Plan")
     
@@ -40,7 +40,7 @@ def main_loop():
         elif "exit" in next_action:
             start()
         elif "hilfe" in next_action:
-            hilfe("flur | räume | exit")
+            hilfe("flur | räume | exit",main_loop)
         else:
             print("Ich weiss nicht, was du meinst.")
 
@@ -65,7 +65,7 @@ def raeume():
         elif "exit" in next_action_raeume:
             start()
         elif "hilfe" in next_action_raeume:
-            hilfe("gehe links | welche gegenüber | vor | gerade | weiter rechts | exit")
+            hilfe("gehe links | welche gegenüber | vor | gerade | weiter rechts | exit",raeume)
         else:
             print("Ich weiss nicht, was du meinst.")
 
@@ -78,7 +78,7 @@ def wohnzimmer():
         elif "exit" in next_action_raeume:
             raeume()
         elif "hilfe" in next_action_raeume:
-            hilfe("was | exit")
+            hilfe("was | exit",wohnzimmer)
         else:
             print("Ich weiss nicht, was du meinst.")
 
@@ -91,7 +91,7 @@ def bad():
         elif "exit" in next_action_raeume:
             raeume()
         elif "hilfe" in next_action_raeume:
-            hilfe("was | exit")
+            hilfe("was | exit",bad)
         else:
             print("Ich weiss nicht, was du meinst.")
 
@@ -108,7 +108,7 @@ def kueche():
         elif "exit" in next_action_raeume:
             raeume()
         elif "hilfe" in next_action_raeume:
-            hilfe("was | fenster | regal | exit")
+            hilfe("was | fenster | regal | exit",kueche)
         else:
             print("Ich weiss nicht, was du meinst.")
 
@@ -135,7 +135,7 @@ def regal():
         elif "exit" in next_action_raeume:
             kueche()
         elif "hilfe" in next_action_raeume:
-            hilfe("öffne buch | öffne ordner | exit")
+            hilfe("öffne buch | öffne ordner | exit",regal)
         else:
             print("Ich weiss nicht, was du meinst.")
 
@@ -157,8 +157,9 @@ def was(raum):
     ziele[raum]() # aus dictionary kann ich keine Funktion ausführen, sondern anderen Wert zuweisen (Funktionsnahme)#
     # () bewirkt den Aufruf der Funktion
 
-def hilfe(befehle):
-    print("Versuche es mit folgenden Befehlen:")
+def hilfe(befehle,sprungfunktion):
+    print("====  Versuche es mit folgenden Befehlen: =======")
     print(befehle)
+    sprungfunktion()
 
 start()
